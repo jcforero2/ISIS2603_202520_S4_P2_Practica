@@ -3,10 +3,13 @@
     <h1 class="titulo">Jóvenes Emprendedores Colombianos</h1>
 
     <div class="cards-container">
-        <div class="card-emprendedor" *ngFor="let emprendedor of emprendedores"
-             (click)="seleccionarEmprendedor(emprendedor)">
-            
-            <img class="foto" [src]="emprendedor.foto_url" alt="{{ emprendedor.nombre }}">
+        <div class="card-emprendedor" 
+             *ngFor="let emprendedor of emprendedores"
+             [routerLink]="['/emprendedores', emprendedor.id]">
+
+            <img class="foto" 
+                 [src]="emprendedor.foto_url" 
+                 alt="{{ emprendedor.nombre }}">
 
             <div class="info">
                 <h5>{{ emprendedor.nombre }}</h5>
@@ -17,10 +20,7 @@
         </div>
     </div>
 
-    <app-emprendedor-detail
-        *ngIf="emprendedorSeleccionado"
-        [emprendedor]="emprendedorSeleccionado">
-    </app-emprendedor-detail>
 </div>
+
 
 
